@@ -8,6 +8,7 @@ const App = () => {
     { text: "Fill the paperwork!", id: "g1" },
     { text: "Finish the current project", id: "g2" },
   ]);
+  const [isInputValid, setIsInputValid] = useState(true);
 
   const addTodoHandler = (enteredText) => {
     setTodoList((prevTodos) => {
@@ -24,10 +25,22 @@ const App = () => {
     });
   };
 
+  const inputValidationHandler = (isValid) => {
+    setIsInputValid(isValid);
+  };
+
   return (
     <div>
-      <section id="goal-form">
-        <TodoInput onAddTodo={addTodoHandler} />
+      <section
+        id="goal-form"
+        style={{
+          boxShadow: isInputValid ? "3px 3px #b7e4c7" : "3px 3px salmon",
+        }}
+      >
+        <TodoInput
+          onAddTodo={addTodoHandler}
+          inputValidator={inputValidationHandler}
+        />
       </section>
       <section id="goals">
         {todoList.length === 0 && (
