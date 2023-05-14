@@ -5,10 +5,10 @@ import "./TodoList.css";
 
 const TodoList = (props) => {
   return (
-    <ul className="goal-list">
-      {props.items.map((goal) => (
-        <TodoListItem key={goal.id} id={goal.id} onDelete={props.onDeleteItem}>
-          {goal.text}
+    <ul className="todo-list">
+      {props.items.map((todo) => (
+        <TodoListItem key={todo.id} id={todo.id} onDelete={props.onDeleteTodo}>
+          {todo.text}
         </TodoListItem>
       ))}
     </ul>

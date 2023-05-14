@@ -1,4 +1,4 @@
-.goal-item {
+.todo-item {
   margin: 1rem 0;
   background: #52b788;
   box-shadow: 3px 3px #b7e4c7;
@@ -10,7 +10,7 @@
   align-items: center;
 }
 
-.goal-item:hover {
+.todo-item:hover {
   transform: translateX(5px);
 }
 

@@ -6,13 +6,13 @@ import "./TodoInput.css";
 const TodoInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
 
-  const goalInputChangeHandler = (event) => {
+  const inputChangeHandler = (event) => {
     setEnteredValue(event.target.value);
   };
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    props.onAddGoal(enteredValue);
+    props.onAddTodo(enteredValue);
     setEnteredValue("");
   };
 
@@ -20,11 +20,7 @@ const TodoInput = (props) => {
     <form onSubmit={formSubmitHandler}>
       <div className="form-control">
         <label>Add New Todo</label>
-        <input
-          type="text"
-          value={enteredValue}
-          onChange={goalInputChangeHandler}
-        />
+        <input type="text" value={enteredValue} onChange={inputChangeHandler} />
       </div>
       <Button type="submit">Add Todo</Button>
     </form>

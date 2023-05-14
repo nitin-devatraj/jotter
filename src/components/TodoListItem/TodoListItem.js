@@ -1,5 +1,4 @@
 import React from "react";
-
 import "./TodoListItem.css";
 
 const TodoListItem = (props) => {
@@ -11,7 +10,7 @@ const TodoListItem = (props) => {
   };
 
   return (
-    <li className="goal-item">
+    <li className="todo-item">
       <p> {props.children}</p>
       <p className="cancel-btn" onClick={deleteHandler}>
         &#10062;

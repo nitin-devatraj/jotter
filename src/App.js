@@ -9,32 +9,32 @@ const App = () => {
     { text: "Finish the current project", id: "g2" },
   ]);
 
-  const addGoalHandler = (enteredText) => {
-    setTodoList((prevGoals) => {
-      const updatedGoals = [...prevGoals];
-      updatedGoals.unshift({ text: enteredText, id: Math.random().toString() });
-      return updatedGoals;
+  const addTodoHandler = (enteredText) => {
+    setTodoList((prevTodos) => {
+      const updatedTodos = [...prevTodos];
+      updatedTodos.unshift({ text: enteredText, id: Math.random().toString() });
+      return updatedTodos;
     });
   };
 
-  const deleteItemHandler = (goalId) => {
-    setTodoList((prevGoals) => {
-      const updatedGoals = prevGoals.filter((goal) => goal.id !== goalId);
-      return updatedGoals;
+  const deleteTodoHandler = (todoId) => {
+    setTodoList((prevTodos) => {
+      const updatedTodos = prevTodos.filter((todo) => todo.id !== todoId);
+      return updatedTodos;
     });
   };
 
   return (
     <div>
       <section id="goal-form">
-        <TodoInput onAddGoal={addGoalHandler} />
+        <TodoInput onAddTodo={addTodoHandler} />
       </section>
       <section id="goals">
         {todoList.length === 0 && (
           <p className="default-text">No todo items found. Maybe add one?</p>
         )}
         {todoList.length > 0 && (
-          <TodoList items={todoList} onDeleteItem={deleteItemHandler} />
+          <TodoList items={todoList} onDeleteTodo={deleteTodoHandler} />
         )}
         {}
       </section>
