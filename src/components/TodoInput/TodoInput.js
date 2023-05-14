@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 
 import Button from "../../UI/Button/Button";
-import "./CourseInput.css";
+import "./TodoInput.css";
 
-const CourseInput = (props) => {
+const TodoInput = (props) => {
   const [enteredValue, setEnteredValue] = useState("");
 
   const goalInputChangeHandler = (event) => {
@@ -31,4 +31,4 @@ const CourseInput = (props) => {
   );
 };
 
-export default CourseInput;
+export default TodoInput;

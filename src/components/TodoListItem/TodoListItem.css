@@ -1,0 +1,25 @@
+.goal-item {
+  margin: 1rem 0;
+  background: #52b788;
+  box-shadow: 3px 3px #b7e4c7;
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.goal-item:hover {
+  transform: translateX(5px);
+}
+
+.cancel-btn {
+  font-size: 25px;
+  margin: 10px 0;
+}
+
+.cancel-btn:hover {
+  cursor: pointer;
+  transform: scaleZ(5px);
+}
