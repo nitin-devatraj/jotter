@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import Button from "../../UI/Button/Button";
+import Button from "../UI/Button/Button";
 import "./TodoInput.css";
 
 const TodoInput = (props) => {
