@@ -23,3 +23,11 @@
   outline: none;
   background: whitesmoke;
 }
+
+.form-control.invalid label {
+  color: salmon;
+}
+
+.form-control.invalid input {
+  background-color: salmon;
+}
