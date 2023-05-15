@@ -44,7 +44,7 @@ const App = () => {
       </section>
       <section id="goals">
         {todoList.length === 0 && (
-          <p className="default-text">No todo items found. Maybe add one?</p>
+          <h1 className="default-text">No todo items found. Maybe add one?</h1>
         )}
         {todoList.length > 0 && (
           <TodoList items={todoList} onDeleteTodo={deleteTodoHandler} />
