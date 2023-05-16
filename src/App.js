@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import TodoList from "./components/TodoList/TodoList";
 import "./App.css";
+import ErrorModal from "./components/UI/error/ErrorModal";
 
 const App = () => {
   const [todoList, setTodoList] = useState([
@@ -29,6 +30,10 @@ const App = () => {
     setIsInputValid(isValid);
   };
 
+  const deactivateErrorHandler = () => {
+    setIsInputValid(true);
+  };
+
   return (
     <div>
       <section
@@ -49,7 +54,7 @@ const App = () => {
         {todoList.length > 0 && (
           <TodoList items={todoList} onDeleteTodo={deleteTodoHandler} />
         )}
-        {}
+        {!isInputValid && <ErrorModal onConfirm={deactivateErrorHandler} />}
       </section>
     </div>
   );
