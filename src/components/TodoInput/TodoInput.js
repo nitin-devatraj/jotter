@@ -1,38 +1,26 @@
-import React, { useState } from "react";
+import React, { useRef } from "react";
 import Button from "../UI/Button/Button";
-import styles from "./TodoInput.module.css";
+import InputFormContainer from "./InputFormContainer";
 
 const TodoInput = (props) => {
-  const [enteredValue, setEnteredValue] = useState("");
-  const [isValid, setIsValid] = useState(true);
-
-  const inputChangeHandler = (event) => {
-    if (event.target.value.trim().length > 0) {
-      setIsValid(true);
-      props.inputValidator(true);
-    }
-    setEnteredValue(event.target.value);
-  };
+  const textInputRef = useRef();
 
   const formSubmitHandler = (event) => {
     event.preventDefault();
-    if (enteredValue.trim().length === 0) {
-      setIsValid(false);
-      props.inputValidator(false);
+    if (textInputRef.current.value.trim().length === 0) {
+      props.onError(false);
       return;
     }
-    props.onAddTodo(enteredValue);
-    setEnteredValue("");
+    props.onAddTodo(textInputRef.current.value);
+    textInputRef.current.value = "";
   };
 
   return (
     <form onSubmit={formSubmitHandler}>
-      <div
-        className={`${styles["form-control"]} ${isValid ? "" : styles.invalid}`}
-      >
+      <InputFormContainer isValid={props.isValid}>
         <label>Add New Todo</label>
-        <input type="text" value={enteredValue} onChange={inputChangeHandler} />
-      </div>
+        <input type="text" ref={textInputRef} />
+      </InputFormContainer>
       <Button type="submit">Add Todo</Button>
     </form>
   );

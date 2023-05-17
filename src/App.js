@@ -1,8 +1,15 @@
 import React, { useState } from "react";
 import TodoInput from "./components/TodoInput/TodoInput";
 import TodoList from "./components/TodoList/TodoList";
-import "./App.css";
 import ErrorModal from "./components/UI/error/ErrorModal";
+import { styled } from "styled-components";
+import TodoSection from "./components/UI/TodoSection";
+import InputFormSection from "./components/UI/InputFormSection";
+
+const DefaultText = styled.h1`
+  text-align: center;
+  color: #52b788;
+`;
 
 const App = () => {
   const [todoList, setTodoList] = useState([
@@ -26,36 +33,32 @@ const App = () => {
     });
   };
 
-  const inputValidationHandler = (isValid) => {
-    setIsInputValid(isValid);
-  };
-
   const deactivateErrorHandler = () => {
     setIsInputValid(true);
   };
 
+  const activateErrorHandler = () => {
+    setIsInputValid(false);
+  };
+
   return (
     <>
-      <section
-        id="goal-form"
-        style={{
-          boxShadow: isInputValid ? "3px 3px #b7e4c7" : "3px 3px salmon",
-        }}
-      >
+      <InputFormSection isValid={isInputValid}>
         <TodoInput
           onAddTodo={addTodoHandler}
-          inputValidator={inputValidationHandler}
+          onError={activateErrorHandler}
+          isValid={isInputValid}
         />
-      </section>
-      <section id="goals">
+      </InputFormSection>
+      <TodoSection>
         {todoList.length === 0 && (
-          <h1 className="default-text">No todo items found. Maybe add one?</h1>
+          <DefaultText>No todo items found. Maybe add one?</DefaultText>
         )}
         {todoList.length > 0 && (
           <TodoList items={todoList} onDeleteTodo={deleteTodoHandler} />
         )}
         {!isInputValid && <ErrorModal onConfirm={deactivateErrorHandler} />}
-      </section>
+      </TodoSection>
     </>
   );
 };
