@@ -35,7 +35,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <>
       <section
         id="goal-form"
         style={{
@@ -56,7 +56,7 @@ const App = () => {
         )}
         {!isInputValid && <ErrorModal onConfirm={deactivateErrorHandler} />}
       </section>
-    </div>
+    </>
   );
 };
 
