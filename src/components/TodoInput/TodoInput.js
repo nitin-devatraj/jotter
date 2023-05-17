@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import Button from "../UI/Button/Button";
-import InputFormContainer from "./InputFormContainer";
+import InputFormContainer from "../UI/InputFormContainer";
 
 const TodoInput = (props) => {
   const textInputRef = useRef();
